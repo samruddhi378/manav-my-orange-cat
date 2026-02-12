@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Be My Valentine 🧡</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .container {
+            margin-top: 60px;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 45px;
+        }
+
+        .letter {
+            font-size: 19px;
+            width: 80%;
+            margin: auto;
+            line-height: 1.7;
+        }
+
+        button {
+            margin: 10px;
+            padding: 12px 25px;
+            font-size: 16px;
+            border: none;
+            border-radius: 25px;
+            background-color: white;
+            color: #ff4e8a;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff4e8a;
+            color: white;
+        }
+
+        .hidden {
+            display: none;
+            margin-top: 20px;
+            font-size: 22px;
+        }
+
+        /* Falling hearts */
+        .heart {
+            position: fixed;
+            top: -10px;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>HAPPPYYYYYY VALENTINE BABYYYYYYYY ❤️</h1>
+
+    <div class="letter">
+        <p>
+        <b>Manav, my orange cat 🧡,</b><br><br>
+
+        You have no idea how much I love you.<br><br>
+
+        This is our first Valentine together, and neither of us really knows how to celebrate it… 
+        but I know one thing — I want us together forever and ever.<br><br>
+
+        This Valentine ata jate raheghaaaa…  
+        but apan doghe ekatra ahot na till our last breath, right? ❤️<br><br>
+
+        My love for you is infinite. It is never ending. 
+        And you also know that, right?<br><br>
+
+        I just want to say I love you so much.  
+        Please love me a little harder… because I love that 🥺<br><br>
+
+        I am sorry… but jasta mala nahi sucht ahe.  
+        This is my first time making a website for someone — kiva abhyas sathi lol 😭  
+        But me he maza maza banavalay ahe.  
+        Me no ChatGPT use okay 😌  
+        Me hardwork kelay ahe!<br><br>
+
+        Mala apalaya photos kiva ajun nahi add karta ala cause mala te yet nahi,  
+        I am new to this 😭  
+        Sorry but next time I’ll try better baby.<br><br>
+
+        Always be my Valentine.  
+        I am asking you this — <b>“BE MY VALENTINE?”</b> 💍  
+        You should be the one asking this but never mind 😒<br><br>
+
+        <b>I LOVE YOU SO MUCH BABY BABY ❤️</b>
+        </p>
+    </div>
+
+    <br>
+
+    <button onclick="showAnswer()">Say YES 💖</button>
+    <button onclick="moveNo()" id="noBtn">Say No 😒</button>
+
+    <div class="hidden" id="yesMsg">
+        Good choice 😌 You are stuck with me forever 🧡♾️
+    </div>
+
+</div>
+
+<script>
+
+    function showAnswer() {
+        document.getElementById("yesMsg").style.display = "block";
+    }
+
+    function moveNo() {
+        const btn = document.getElementById("noBtn");
+
+        // Allow free movement
+        btn.style.position = "fixed";
+
+        const maxX = window.innerWidth - btn.offsetWidth;
+        const maxY = window.innerHeight - btn.offsetHeight;
+
+        const randomX = Math.floor(Math.random() * maxX);
+        const randomY = Math.floor(Math.random() * maxY);
+
+        btn.style.left = randomX + "px";
+        btn.style.top = randomY + "px";
+
+        // Random rotation
+        const randomRotate = Math.floor(Math.random() * 360);
+        btn.style.transform = "rotate(" + randomRotate + "deg)";
+    }
+
+    // Falling hearts
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = Math.random() > 0.5 ? "❤️" : "🧡";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+        heart.style.fontSize = Math.random() * 20 + 10 + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+    }
+
+    setInterval(createHeart, 300);
+
+</script>
+
+</body>
+</html>
